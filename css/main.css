@@ -24,19 +24,19 @@ div {
 
 @font-face {
   font-family: SVBasicManual;
-  src: url("/public/font/SVBasicManual.ttf") format("truetype");
+  src: url("./public/font/SVBasicManual.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: SVBasicManual-Bold;
-  src: url("/public/font/SVBasicManual-Bold.ttf") format("truetype");
+  src: url("./public/font/SVBasicManual-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: SuperRichExpanded;
-  src: url("/public/font/SuperRichExpanded.otf") format("opentype");
+  src: url("./public/font/SuperRichExpanded.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -44,7 +44,7 @@ html {
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", sans-serif;
   font-size: 10px;
   color: #303030;
-  cursor: url("/public/imgs/crsr.png") 16 16, auto;
+  cursor: url("./public/imgs/crsr.png") 16 16, auto;
   overflow: hidden;
   height: 100%;
 }
@@ -110,7 +110,7 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("/public/imgs/mv-bg-d-sm.png") center/contain no-repeat;
+  background: url("./public/imgs/mv-bg-d-sm.png") center/contain no-repeat;
   top: 0;
   right: -50%;
   opacity: 1;
@@ -285,7 +285,7 @@ html {
 .footer {
   position: relative;
   padding: 40px 3% 20px;
-  background: url("/public/imgs/mv-bg2.jpg") center/auto repeat #fff;
+  background: url("./public/imgs/mv-bg2.jpg") center/auto repeat #fff;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
@@ -520,7 +520,7 @@ html {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("/public/imgs/mv-bg2.jpg") center/auto repeat;
+  background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
   left: 0;
   top: 0;
   z-index: -10;
@@ -528,7 +528,7 @@ html {
 .my-mv__bg::after {
   content: "";
   position: absolute;
-  background: url("/public/imgs/mv-bg-d-sm.png") center/contain no-repeat;
+  background: url("./public/imgs/mv-bg-d-sm.png") center/contain no-repeat;
   width: 1056px;
   height: 508px;
   right: -477px;
@@ -577,7 +577,7 @@ html {
   position: absolute;
   width: 150%;
   height: 150%;
-  background: url("/public/imgs/alea-d.png") center/contain no-repeat;
+  background: url("./public/imgs/alea-d.png") center/contain no-repeat;
   left: 49%;
   top: 50%;
   z-index: -1;
@@ -669,13 +669,13 @@ html {
 .my-mv__mntx-left-content {
   height: 100%;
   width: 500%;
-  background: url("/public/imgs/marquee-plain.svg") 0% center/contain repeat-x;
+  background: url("./public/imgs/marquee-plain.svg") 0% center/contain repeat-x;
   background-position: 0%;
   -webkit-animation: marquee 80s linear infinite;
           animation: marquee 80s linear infinite;
 }
 .my-mv__mntx-left-content.s2 {
-  background-image: url("/public/imgs/marquee-plain.svg");
+  background-image: url("./public/imgs/marquee-plain.svg");
   -webkit-animation: marquee 80s linear infinite;
           animation: marquee 80s linear infinite;
   -webkit-filter: blur(2px);
@@ -1098,7 +1098,7 @@ html {
   position: absolute;
   width: 100px;
   height: 100px;
-  background: url("/public/imgs/mv-bg-d.png") center/contain no-repeat;
+  background: url("./public/imgs/mv-bg-d.png") center/contain no-repeat;
   border-radius: 50%;
   top: 50%;
   left: 50%;
