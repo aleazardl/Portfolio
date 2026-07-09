@@ -1,0 +1,228 @@
+@use 'settings/color' as c;
+@use 'settings/font-family' as ff;
+@use 'settings/font-weight' as fw;
+
+.header {
+  position: fixed;
+  width: 100%;
+  min-height: 100px;
+  padding: 18px 30px;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  transition: 0.3s ease;
+
+  &.hide {
+    opacity: 0;
+  }
+
+  &-logo {
+    position: relative;
+    width: 150px;
+    height: 64px;
+    z-index: 2;
+    opacity: 1;
+    filter: invert(1) blur(0);
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      filter: invert(1);
+      z-index: 2;
+    }
+
+    &.active {
+      transform: scale(1);
+    }
+  }
+
+  &-nav {
+    position: absolute;
+    opacity: 0;
+    height: 30vh;
+    width: 20vw;
+    top: 0;
+    background-color: #1d1d1b;
+    right: 50%;
+    transition: 0.3s ease;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('/public/imgs/mv-bg-d-sm.png') center / contain no-repeat;
+      top: 0;
+      right: -50%;
+      opacity: 1;
+    }
+
+    &.active {
+      top: 0;
+
+      &::after {
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: 0.3s ease 0.6s, transform 0.3s ease 0.9s;
+      }
+
+      .header-menu {
+        opacity: 0;
+        top: calc(50% - 24px);
+        transition: 0.3s ease 0.9s, top 0.5s ease 1.5s;
+
+        a {
+          margin: 0 0 8px;
+          text-shadow: 0 8px 8px #d8000093;
+          transition: 0.5s ease 1.5s;
+        }
+      }
+    }
+  }
+
+  &-hamburgir {
+    position: relative;
+    margin-left: auto;
+    cursor: pointer;
+
+    &.active {
+      .header-hamburgir__hamburgir {
+        transform: rotate(180deg);
+
+        &::before,
+        &::after {
+          width: 0;
+          right: -100%;
+          transition: 0.3s ease-in-out 0.6s, width 0.6s ease 1.77s;
+          transform: scale(1.3);
+        }
+
+        &::after {
+          right: unset;
+          left: -100%;
+        }
+      }
+
+      .header-hamburgir__bur {
+        background-color: transparent;
+        transform: translate(-50%, -50%) rotate(-180deg);
+        transition: 0.3s ease, background-color 0.1s ease 0.55s;
+      }
+
+      .header-hamburgir__bur-bur {
+        height: 103%;
+        transform: translate(-50%, -58%) rotate(145deg) scale(1.3);
+        transition: 0.3s ease-in-out 0.6s, height 0.3s ease 0.55s;
+
+        &::before,
+        &::after {
+          width: 100%;
+          transform: translate(-50%, -58%) scale(1.1);
+          transition: 0.4s ease-in-out 1.4s;
+        }
+
+        &::after {
+          transform: translate(-50%, -58%) rotate(250deg) scale(1.1);
+          transition: 0.6s ease-in-out 1.6s, width 0.1s ease 1.6s;
+        }
+      }
+    }
+  }
+
+  &-hamburgir__hamburgir {
+    position: relative;
+    height: 30px;
+    width: 40px;
+    transition: 0.3s ease;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 5px;
+      background: linear-gradient(90deg, crimson 50%, #000 50%);
+      top: 0;
+      right: 0;
+    }
+
+    &::after {
+      background: linear-gradient(90deg, #000 50%, crimson 50%);
+      top: unset;
+      right: unset;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &-hamburgir__bur {
+    position: absolute;
+    width: 110%;
+    height: 5px;
+    background-color: #000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s;
+    z-index: 1;
+  }
+
+  &-hamburgir__bur-bur {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    left: 50%;
+    background-color: crimson;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #000;
+      transition: 0.2s;
+    }
+  }
+
+  &-menu {
+    position: absolute;
+    max-width: 1000px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    align-content: center;
+    gap: 20px;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.1s ease;
+
+    a {
+      display: block;
+      margin: 0;
+      color: c.$white;
+      text-align: center;
+      font: fw.$bold 7rem ff.$svbasic;
+      letter-spacing: 0.1em;
+      transition: 0.1s ease;
+    }
+  }
+}

@@ -1,0 +1,176 @@
+@use 'settings/color' as c;
+@use 'settings/font-family' as ff;
+@use 'settings/font-weight' as fw;
+@use 'tools/media-queries' as mq;
+
+.footer {
+  position: relative;
+  padding: 40px 3% 20px;
+  background: url('/public/imgs/mv-bg2.jpg') center / auto repeat c.$white;
+  transition: 0.3s ease;
+  @include mq.max(980px) {
+    padding: 20px 3%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 3%);
+    height: 100%;
+    background-color: c.$black;
+    top: 0;
+    left: -3%;
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include mq.sp {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  }
+
+  &__me {
+    position: relative;
+    height: 100%;
+    width: auto;
+    @include mq.sp {
+      width: 100%;
+      height: auto;
+    }
+
+    // font: fw.$black 22rem ff.$robototo;
+    // line-height: 0.5em;
+    filter: brightness(0.7);
+
+    img {
+      width: 300px;
+      height: auto;
+      filter: drop-shadow(0 0 20px #ffffff50);
+      @include mq.max(980px) {
+        width: 200px;
+      }
+    }
+  }
+
+  &__ctc {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    @include mq.max(1200px) {
+      margin: 0 auto 0 0;
+      padding-left: 40px;
+    }
+    @include mq.max(980px) {
+      padding-left: 20px;
+    }
+  }
+
+  &__ctc-links {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    @include mq.max(1200px) {
+      flex-direction: column;
+    }
+    @include mq.sp {
+      gap: 15px;
+    }
+
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   width: 1px;
+    //   height: 100%;
+    //   background-color: c.$white;
+    //   left: 0;
+    //   top: 0;
+    // }
+  }
+
+  &__ctc-gr {
+    display: flex;
+    gap: 20px;
+    @include mq.sp {
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+  }
+
+  // &__ctc-lb {
+  //   margin-bottom: 10px;
+  //   font: fw.$bold 2.7rem ff.$yugo;
+  //   color: c.$white;
+  //   letter-spacing: 0.2em;
+  // }
+
+  &__ctc-item {
+    display: block;
+    color: c.$white;
+    font-size: 2rem;
+    font-family: ff.$svbasic;
+    @include mq.max(980px) {
+      font-size: 1.7rem;
+    }
+    @include mq.sp {
+      font-size: 1.5rem;
+    }
+
+    &.end {
+      text-align: end;
+    }
+
+    &.weird {
+      margin-left: -10px;
+    }
+  }
+
+  &__box {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: -10px 20px 0 0;
+    display: flex;
+    align-items: flex-end;
+    transform: scale(0.7);
+    @include mq.max(980px) {
+      transform: scale(0.55);
+    }
+    @include mq.sp {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%) scale(0.8);
+    }
+    @include mq.max(450px) {
+      top: 15px;
+      transform: translateY(0) scale(0.55);
+    }
+
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   background: url('/public/imgs/mv-bg-d-sm.png') center / contain no-repeat;
+    //   width: 500px;
+    //   height: 300px;
+    //   left: 50%;
+    //   top: 50%;
+    //   transform: translate(-50%, -50%);
+    // }
+  }
+
+  &__cpr {
+    font-size: 0.8rem;
+    color: c.$white;
+    bottom: 7px;
+    text-align: center;
+    filter: brightness(0.5);
+    @include mq.sp {
+      margin-top: 20px;
+    }
+  }
+}
