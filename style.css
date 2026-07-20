@@ -43,6 +43,11 @@ div {
 * {
   cursor: none;
 }
+@media screen and (max-width: 767px) {
+  * {
+    cursor: auto;
+  }
+}
 
 html {
   font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", sans-serif;
@@ -174,6 +179,12 @@ html {
 .header-hamburgir:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+@media screen and (max-width: 980px) {
+  .header-hamburgir:hover {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
 }
 .header-hamburgir.active .header-hamburgir__hamburgir {
   -webkit-transform: rotate(180deg);
@@ -787,7 +798,7 @@ html {
 @media screen and (max-width: 980px) {
   .my-box__container {
     top: 15vh;
-    left: 52%;
+    left: 55%;
     -webkit-transform: translateX(-50%) scale(1.2);
             transform: translateX(-50%) scale(1.2);
   }
