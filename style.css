@@ -72,6 +72,12 @@ html {
     padding: 20px;
   }
 }
+@media screen and (max-width: 767px) {
+  .header {
+    min-height: 60px;
+    padding: 12px 20px;
+  }
+}
 .header.hide {
   opacity: 0;
 }
@@ -1208,6 +1214,7 @@ html {
 .my-outro {
   position: relative;
   height: calc(100vh - 200px);
+  height: calc(100svh - 200px);
   width: 100%;
   padding: 120px 3%;
 }
@@ -1375,3 +1382,4 @@ html {
     opacity: 0.35;
   }
 }
+/*# sourceMappingURL=main.css.map */
