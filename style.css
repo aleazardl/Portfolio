@@ -78,6 +78,25 @@ html {
     padding: 12px 20px;
   }
 }
+.header::after {
+  content: "";
+  position: absolute;
+  background: url("./public/imgs/mv-bg-d-sm.png") center/contain no-repeat;
+  width: 1056px;
+  height: 508px;
+  right: -477px;
+  top: -200px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  opacity: 0.7;
+  z-index: -2;
+}
+@media screen and (max-width: 980px) {
+  .header::after {
+    right: -487px;
+    top: -208px;
+  }
+}
 .header.hide {
   opacity: 0;
 }
@@ -339,10 +358,19 @@ html {
 }
 
 .footer {
-  position: relative;
+  position: sticky;
+  width: 100%;
   height: 200px;
-  padding: 30px 3%;
-  background: url("./public/imgs/mv-bg2.jpg") center/auto repeat #fff;
+  padding: 20px 3%;
+  mix-blend-mode: difference;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  left: 0;
+  bottom: 0;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   overflow: hidden;
@@ -357,12 +385,13 @@ html {
   position: absolute;
   width: 103%;
   height: 100%;
-  background-color: #000;
-  mix-blend-mode: lighten;
+  background: #fff;
   top: 0;
   left: -3%;
+  z-index: -2;
 }
 .footer__wrapper {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -373,6 +402,7 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  mix-blend-mode: difference;
 }
 .footer__content {
   margin: auto 0;
@@ -552,7 +582,7 @@ html {
   }
 }
 .footer__cpr {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #fff;
   text-align: center;
   -webkit-filter: brightness(0.5);
@@ -595,29 +625,12 @@ html {
   top: 0;
   z-index: -10;
 }
-.my-bg::after {
-  content: "";
-  position: absolute;
-  background: url("./public/imgs/mv-bg-d-sm.png") center/contain no-repeat;
-  width: 1056px;
-  height: 508px;
-  right: -477px;
-  top: -200px;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
-  z-index: -2;
-}
-@media screen and (max-width: 980px) {
-  .my-bg::after {
-    right: -487px;
-    top: -208px;
-  }
-}
 .my-mv {
   position: relative;
   height: 100vh;
   height: 100svh;
   width: 100%;
+  background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -633,6 +646,7 @@ html {
           flex-direction: column;
   transition: -1s ease;
   overflow: hidden;
+  z-index: 1;
 }
 .my-mv__main {
   position: fixed;
@@ -654,7 +668,7 @@ html {
   mix-blend-mode: difference;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  z-index: 3;
+  z-index: 5;
 }
 .my-mv__main-dsn {
   position: absolute;
@@ -773,9 +787,6 @@ html {
   .my-mntx {
     height: 2vh;
   }
-}
-.my-mntx--s2 {
-  height: 1.8vh;
 }
 .my-mntx__left {
   width: 63.3%;
@@ -992,18 +1003,20 @@ html {
   position: relative;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
-  mix-blend-mode: difference;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
+  z-index: 3;
 }
 .my-works__bg {
   position: absolute;
-  width: 200%;
-  height: 200%;
-  background-color: #fff;
-  bottom: 0;
+  width: 100%;
+  height: calc(100% + 15vh);
+  mix-blend-mode: difference;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(78%, #fff), to(transparent));
+  background: linear-gradient(to bottom, #fff 78%, transparent 100%);
+  bottom: -15vh;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -1076,6 +1089,7 @@ html {
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
+  mix-blend-mode: multiply;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1091,6 +1105,11 @@ html {
           transform: translateY(-50%);
   gap: 90px;
   z-index: 999999;
+}
+@media screen and (max-width: 980px) {
+  .my-works__content {
+    top: 65%;
+  }
 }
 .my-works__g {
   position: relative;
@@ -1217,16 +1236,89 @@ html {
   height: calc(100svh - 200px);
   width: 100%;
   padding: 120px 3%;
+  z-index: 5;
 }
 @media screen and (max-width: 767px) {
   .my-outro {
     padding: 100px 3%;
   }
 }
-.my-outro p {
+.my-outro__wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 5%;
+}
+@media screen and (max-width: 980px) {
+  .my-outro__wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 40px;
+  }
+}
+.my-outro__wrapper p {
+  width: 65%;
   color: #fff;
   font: 700 3.5rem "SVBasicManual", "SVBasicManual-Bold", sans-serif;
   font-size: calc(17px + (40 - 17) * (100vw - 320px) / (1920 - 320));
+}
+@media screen and (max-width: 980px) {
+  .my-outro__wrapper p {
+    width: 100%;
+  }
+}
+.my-outro__idk {
+  position: relative;
+  width: 25%;
+  margin-top: auto;
+  aspect-ratio: 1;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.my-outro__idk img {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: contain;
+     object-fit: contain;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.my-outro__idk-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.my-outro__idk-bg-dc2 {
+  position: absolute;
+  width: 400%;
+  height: 400%;
+  background: url("./public/imgs/stars.png") center/6% repeat;
+  top: 390%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(25deg);
+          transform: translate(-50%, -50%) rotate(25deg);
+  z-index: 2;
+}
+.my-outro__idk-bg-dc2.iscrolling {
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
 }
 
 .overflow {
@@ -1311,6 +1403,18 @@ html {
 
 .mt20 {
   margin-top: 20px;
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
+  background-attachment: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 @-webkit-keyframes logorot {
