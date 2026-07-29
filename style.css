@@ -643,6 +643,7 @@ html {
   height: 100svh;
   width: 100%;
   background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
+  background-attachment: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1232,6 +1233,8 @@ html {
   height: calc(100svh - 200px);
   width: 100%;
   padding: 220px 3% 30px;
+  background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
+  background-attachment: fixed;
   z-index: 5;
 }
 @media screen and (max-width: 980px) {
@@ -1282,6 +1285,8 @@ html {
     position: relative;
     width: 30%;
     margin-bottom: 30px;
+    -webkit-box-shadow: 0 0 9px 9px #000;
+            box-shadow: 0 0 9px 9px #000;
     top: 0;
   }
 }
@@ -1333,12 +1338,8 @@ html {
   }
 }
 .my-outro__idk-bg-dc2.iscrolling {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
-}
-
-.main {
-  background-color: #000;
+  -webkit-filter: brightness(2);
+          filter: brightness(2);
 }
 
 .overflow {
