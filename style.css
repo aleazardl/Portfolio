@@ -1003,15 +1003,17 @@ html {
 }
 .my-works {
   position: relative;
-  height: 100vh !important;
-  width: 100% !important;
+  min-height: 100vh;
+  width: 100%;
   background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
-  overflow: hidden;
+  background-attachment: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   z-index: 4;
 }
 .my-works__bg {
   position: absolute;
-  display: none;
   width: 100%;
   height: calc(100% + 15vh);
   mix-blend-mode: difference;
@@ -1021,15 +1023,6 @@ html {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-}
-.my-works__head {
-  position: fixed;
-  top: -35%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) scaleX(1.2) scaleY(0);
-          transform: translateX(-50%) scaleX(1.2) scaleY(0);
-  -webkit-transform-origin: bottom;
-          transform-origin: bottom;
 }
 .my-works__works {
   position: fixed;
