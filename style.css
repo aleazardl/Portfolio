@@ -1014,6 +1014,7 @@ html {
   z-index: 3;
 }
 .my-works__bg {
+  display: none;
   position: absolute;
   width: 100%;
   height: calc(100% + 15vh);
