@@ -90,7 +90,7 @@ html {
   -webkit-filter: invert(1) blur(0);
           filter: invert(1) blur(0);
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1200px) {
   .header-logo {
     width: 120px;
   }
@@ -167,7 +167,7 @@ html {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1200px) {
   .header-hamburgir {
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
@@ -1224,9 +1224,15 @@ html {
   height: calc(100vh - 200px);
   height: calc(100svh - 200px);
   width: 100%;
-  padding: 220px 3% 30px;
+  padding: 250px 3% 30px;
+  padding-top: calc(170px + (250 - 170) * (100vw - 980px) / (1920 - 980));
   background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
   z-index: 5;
+}
+@media screen and (max-width: 1200px) {
+  .my-outro {
+    padding-top: 180px;
+  }
 }
 @media screen and (max-width: 980px) {
   .my-outro {
@@ -1261,11 +1267,11 @@ html {
   float: left;
   margin: 0 0 0 auto;
   aspect-ratio: 1;
-  opacity: 0.6;
+  opacity: 0.8;
   -webkit-box-shadow: 0 0 15px 15px #000;
           box-shadow: 0 0 15px 15px #000;
   border-radius: 50%;
-  top: -15vh;
+  top: -8vw;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -1274,7 +1280,7 @@ html {
 @media screen and (max-width: 980px) {
   .my-outro__idk {
     position: relative;
-    width: 30%;
+    width: 150px;
     margin-bottom: 30px;
     -webkit-box-shadow: 0 0 9px 9px #000;
             box-shadow: 0 0 9px 9px #000;
@@ -1301,6 +1307,7 @@ html {
   .my-outro__idk img {
     width: 50%;
     height: 50%;
+    top: 50%;
   }
 }
 .my-outro__idk-bg {
