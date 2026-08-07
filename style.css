@@ -50,8 +50,8 @@ html {
 
 .header {
   position: fixed;
-  width: 100%;
   min-height: 100px;
+  width: 100%;
   padding: 18px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -69,21 +69,40 @@ html {
 @media screen and (max-width: 980px) {
   .header {
     min-height: 80px;
-    padding: 20px;
+    padding: 10px 20px;
   }
 }
 @media screen and (max-width: 767px) {
   .header {
     min-height: 60px;
-    padding: 12px 20px;
   }
 }
 .header.hide {
   opacity: 0;
 }
+.header-bg {
+  position: absolute;
+  width: 100%;
+  height: 110%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(212, 212, 212, 0.062745098)), to(transparent));
+  background: linear-gradient(to bottom, rgba(212, 212, 212, 0.062745098) 10%, transparent 100%);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, black), to(transparent));
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+          mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, black), to(transparent));
+          mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  top: 0;
+  left: 0;
+}
+@media screen and (max-width: 980px) {
+  .header-bg {
+    height: 80%;
+  }
+}
 .header-logo {
   position: relative;
-  width: 150px;
+  width: 130px;
   height: auto;
   z-index: 2;
   opacity: 1;
@@ -642,6 +661,7 @@ html {
   height: 100vh;
   height: 100svh;
   width: 100%;
+  padding-top: 100px;
   background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
   background-attachment: fixed;
   display: -webkit-box;
@@ -809,6 +829,8 @@ html {
   background-position: 0%;
   -webkit-animation: marquee 80s linear infinite;
           animation: marquee 80s linear infinite;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 .my-mntx__left-content.s2 {
   background-image: url("./public/imgs/marquee-plain.svg");
@@ -843,7 +865,7 @@ html {
   position: fixed;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  top: 8vh;
+  top: 10vh;
   left: 51%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -852,7 +874,7 @@ html {
 @media screen and (max-width: 980px) {
   .my-box__container {
     top: 10vh;
-    left: 55%;
+    left: 52%;
     -webkit-transform: translateX(-50%) scale(1.2);
             transform: translateX(-50%) scale(1.2);
   }
@@ -860,6 +882,7 @@ html {
 @media screen and (max-width: 767px) {
   .my-box__container {
     top: 17vh;
+    left: 55%;
   }
 }
 .my-box__container--footer {
@@ -1010,13 +1033,13 @@ html {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  padding: 50px 0 0;
+  padding: 20px 0 0;
   background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
   z-index: 4;
 }
 @media screen and (max-width: 767px) {
   .my-about {
-    padding: 20px 0;
+    padding: 20px 0 0;
   }
 }
 .my-about__bg {
@@ -1042,15 +1065,20 @@ html {
 }
 .my-about__content {
   position: relative;
-  width: 90%;
-  height: 65%;
-  margin: 0 auto 30px;
-  top: 100vh;
+  width: 70%;
+  height: 60%;
+  margin: auto auto 30px;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  top: 70vh;
+  overflow: hidden;
   z-index: 2;
 }
 @media screen and (max-width: 767px) {
   .my-about__content {
+    width: 85%;
     height: 60%;
+    margin: auto auto 0;
   }
 }
 .my-about__content::before {
@@ -1062,9 +1090,8 @@ html {
 }
 .my-about__about {
   position: relative;
-  width: 40%;
-  height: 100%;
-  padding: 30px;
+  width: 100%;
+  padding: 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -1075,20 +1102,9 @@ html {
     padding: 32px 20px;
   }
 }
-.my-about__about::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #000 url("./public/imgs/stars.png") center/40% repeat;
-  opacity: 0.8;
-  z-index: 1;
-}
-@media screen and (max-width: 980px) {
-  .my-about__about::before {
-    background: #000 url("./public/imgs/stars.png") center/20% repeat;
+@media screen and (max-width: 767px) {
+  .my-about__about {
+    padding: 20px;
   }
 }
 .my-about__about p {
@@ -1099,31 +1115,102 @@ html {
   color: #fff;
   z-index: 2;
 }
+.my-about__wip {
+  position: relative;
+  padding-top: 50px;
+}
+.my-about__wip p {
+  position: relative;
+  width: 150%;
+  font: 700 2.5rem "Roboto Flex", sans-serif;
+  line-height: 1em;
+  color: #000;
+  background-color: #ebc106;
+  border: 2px dashed #000;
+  -webkit-filter: grayscale(0.4) blur(1px);
+          filter: grayscale(0.4) blur(1px);
+  white-space: nowrap;
+  left: -10%;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+@media screen and (max-width: 1200px) {
+  .my-about__wip p {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .my-about__wip p {
+    font-size: 1.4rem;
+  }
+}
+.my-about__wip p span::before {
+  content: "///";
+  padding: 0 15px;
+  font: 700 2.5rem "SuperRichExpanded", serif;
+}
+@media screen and (max-width: 1200px) {
+  .my-about__wip p span::before {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .my-about__wip p span::before {
+    font-size: 1.4rem;
+  }
+}
+.my-about__wip p.s2 {
+  left: -20%;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-filter: grayscale(0.3) blur(0.5px);
+          filter: grayscale(0.3) blur(0.5px);
+}
 .my-about__stack {
   position: sticky;
   width: 100vw;
   height: 18%;
-  margin-top: auto;
   left: 0;
   bottom: 0;
   overflow: hidden;
   z-index: 3;
 }
-@media screen and (max-width: 980px) {
-  .my-about__stack {
-    height: 14%;
-  }
-}
 @media screen and (max-width: 767px) {
   .my-about__stack {
-    height: 20%;
+    height: 25%;
   }
+}
+.my-about__stack::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 110%;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, #d4d4d4), to(transparent));
+  background: linear-gradient(to top, #d4d4d4 10%, transparent 100%);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-mask-image: -webkit-gradient(linear, left bottom, left top, color-stop(40%, black), to(transparent));
+  -webkit-mask-image: linear-gradient(to top, black 40%, transparent 100%);
+          mask-image: -webkit-gradient(linear, left bottom, left top, color-stop(40%, black), to(transparent));
+          mask-image: linear-gradient(to top, black 40%, transparent 100%);
+  top: -10%;
+  left: 0;
 }
 .my-about__stack .splide {
   height: 100%;
 }
 .my-about__stack .splide__track {
   height: 100%;
+}
+.my-about__stack .splide__slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .my-about__stack-gr {
   position: absolute;
@@ -1143,14 +1230,26 @@ html {
   height: 100%;
 }
 .my-about__stack-item {
+  -webkit-filter: grayscale(0.8);
+          filter: grayscale(0.8);
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
+.my-about__stack-item:hover {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+}
+.my-about__stack-item:hover img {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+  -webkit-transition: 0.45s ease-out;
+  transition: 0.45s ease-out;
+}
 .my-works {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  padding: 50px 0 150px;
+  padding: 180px 0 300px;
   background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
   background-attachment: fixed;
   display: -webkit-box;
@@ -1166,9 +1265,9 @@ html {
   overflow: hidden;
   z-index: 4;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 980px) {
   .my-works {
-    padding: 80px 0 100px;
+    padding: 80px 0 180px;
   }
 }
 .my-works__bg {
@@ -1186,13 +1285,18 @@ html {
 .my-works__title {
   height: 8vh;
   width: auto;
-  margin-bottom: 20px;
+  margin-bottom: 120px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+@media screen and (max-width: 980px) {
+  .my-works__title {
+    margin-bottom: 60px;
+  }
 }
 @media screen and (max-width: 767px) {
   .my-works__title {
@@ -1234,18 +1338,28 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2117647059);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2117647059);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: top center;
-     object-position: top center;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
-  opacity: 0;
+  -o-object-position: left;
+     object-position: left;
   left: 0;
   top: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: 0.3s ease, -webkit-transform-origin 0s ease;
+  transition: 0.3s ease, -webkit-transform-origin 0s ease;
+  transition: 0.3s ease, transform-origin 0s ease;
+  transition: 0.3s ease, transform-origin 0s ease, -webkit-transform-origin 0s ease;
 }
 .my-works__works img.active {
-  opacity: 1;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 .my-works__works-wrap {
   height: 100%;
@@ -1253,8 +1367,6 @@ html {
           transform: scale(0);
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
-  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2117647059);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2117647059);
 }
 .my-works__content {
   position: relative;
@@ -1332,7 +1444,7 @@ html {
 }
 .my-works__g-item:hover p {
   opacity: 1;
-  top: -20px;
+  top: -15px;
 }
 @media screen and (max-width: 767px) {
   .my-works__g-item:hover p {
@@ -1349,8 +1461,7 @@ html {
 }
 .my-works__g-item p {
   position: absolute;
-  font-size: 2.2rem;
-  font-weight: 700;
+  font: 700 2.2rem "SVBasicManual", "SVBasicManual-Bold", sans-serif;
   line-height: 1em;
   text-align: center;
   white-space: nowrap;
@@ -1464,6 +1575,11 @@ html {
     top: 0;
   }
 }
+@media screen and (max-width: 500px) {
+  .my-outro__idk {
+    width: 120px;
+  }
+}
 .my-outro__idk img {
   position: absolute;
   width: 30%;
@@ -1548,42 +1664,18 @@ html {
   }
 }
 
-.mouse-cursor {
-  position: fixed;
-  width: 32px;
-  height: 32px;
-  background-image: url("./public/imgs/crsr.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 99999999;
-  -webkit-transition: width 0.3s ease, height 0.3s ease;
-  transition: width 0.3s ease, height 0.3s ease;
-}
-
-.mouse-cursor--hover {
-  width: 10px;
-  height: 10px;
-}
-
 .mouse-overlay {
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   pointer-events: none;
-  background: #fff;
-  -webkit-filter: drop-shadow(0 0 30px rgba(43, 43, 43, 0.631372549)) blur(10px) invert(30%);
-          filter: drop-shadow(0 0 30px rgba(43, 43, 43, 0.631372549)) blur(10px) invert(30%);
-  opacity: 0.8;
+  background: url("./public/imgs/star.png") center/contain no-repeat;
+  mix-blend-mode: difference;
   border-radius: 50%;
   will-change: transform;
   z-index: 9999999;
-  -webkit-transition: opacity 0.5s ease, -webkit-filter 0.3s ease;
-  transition: opacity 0.5s ease, -webkit-filter 0.3s ease;
-  transition: opacity 0.5s ease, filter 0.3s ease;
-  transition: opacity 0.5s ease, filter 0.3s ease, -webkit-filter 0.3s ease;
+  -webkit-transition: height 0.2s ease, width 0.2s ease;
+  transition: height 0.2s ease, width 0.2s ease;
 }
 @media screen and (max-width: 980px) {
   .mouse-overlay {
@@ -1592,9 +1684,8 @@ html {
 }
 
 .mouse-overlay--hover {
-  -webkit-filter: drop-shadow(0 0 30px rgba(43, 43, 43, 0.631372549)) blur(30px) invert(30%);
-          filter: drop-shadow(0 0 30px rgba(43, 43, 43, 0.631372549)) blur(30px) invert(30%);
-  opacity: 0.3;
+  width: 30px;
+  height: 30px;
 }
 
 .mt20 {
