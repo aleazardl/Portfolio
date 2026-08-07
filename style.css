@@ -1032,6 +1032,7 @@ html {
 .my-about {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   padding: 20px 0 0;
   background: url("./public/imgs/mv-bg2.jpg") center/auto repeat;
