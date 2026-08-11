@@ -62,7 +62,7 @@ html {
   background-color: transparent;
   top: 0;
   left: 0;
-  z-index: 9999999;
+  z-index: 999999;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
@@ -88,10 +88,10 @@ html {
   background: linear-gradient(to bottom, rgba(212, 212, 212, 0.062745098) 10%, transparent 100%);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, black), to(transparent));
-  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-          mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(40%, black), to(transparent));
-          mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, black), color-stop(80%, transparent));
+  -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+          mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, black), color-stop(80%, transparent));
+          mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
   top: 0;
   left: 0;
 }
@@ -622,6 +622,30 @@ html {
      object-fit: contain;
 }
 
+.preloader {
+  position: fixed;
+  width: 120%;
+  height: 150%;
+  border-radius: 0 0 50% 50%;
+  aspect-ratio: 1;
+  background-color: #000;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  z-index: 999999999;
+  overflow: hidden;
+  -webkit-animation: prelod 3s forwards;
+          animation: prelod 3s forwards;
+}
+.preloader.im-in {
+  opacity: 0;
+}
+
 .my {
   position: relative;
 }
@@ -677,7 +701,8 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  transition: -1s ease;
+  -webkit-transition: 3s ease;
+  transition: 3s ease;
   overflow: hidden;
   z-index: 1;
 }
@@ -863,17 +888,20 @@ html {
 }
 .my-box__container {
   position: fixed;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
   top: 10vh;
   left: 51%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  z-index: 9999;
+  -webkit-transform: translateX(-50%) scale(1);
+          transform: translateX(-50%) scale(1);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  z-index: 999999;
+  -webkit-animation: boxprelod2 3s forwards;
+          animation: boxprelod2 3s forwards;
 }
 @media screen and (max-width: 980px) {
   .my-box__container {
-    top: 10vh;
     left: 52%;
     -webkit-transform: translateX(-50%) scale(1.2);
             transform: translateX(-50%) scale(1.2);
@@ -881,9 +909,19 @@ html {
 }
 @media screen and (max-width: 767px) {
   .my-box__container {
-    top: 17vh;
-    left: 55%;
+    top: 16vh;
+    left: 58%;
   }
+}
+.my-box__container--preloader {
+  top: 50%;
+  -webkit-animation: boxprelod 3s forwards;
+          animation: boxprelod 3s forwards;
+  z-index: 9999999999;
+}
+.my-box__container--preloader .my-box {
+  -webkit-animation: logorot 1.99s linear infinite;
+          animation: logorot 1.99s linear infinite;
 }
 .my-box__container--footer {
   position: absolute;
@@ -891,6 +929,8 @@ html {
   left: unset;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  -webkit-animation: none;
+          animation: none;
 }
 .my-box {
   width: 100px;
@@ -1068,10 +1108,19 @@ html {
   position: relative;
   width: 70%;
   height: 60%;
+  padding: 0 0 50px;
+  border-radius: 50px;
   margin: auto auto 30px;
   -webkit-filter: blur(5px);
           filter: blur(5px);
-  top: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 55vh;
   overflow: hidden;
   z-index: 2;
 }
@@ -1080,6 +1129,7 @@ html {
     width: 85%;
     height: 60%;
     margin: auto auto 0;
+    border-radius: 20px;
   }
 }
 .my-about__content::before {
@@ -1092,13 +1142,13 @@ html {
 .my-about__about {
   position: relative;
   width: 100%;
+  margin: 0 auto;
   padding: 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 @media screen and (max-width: 980px) {
   .my-about__about {
-    width: 100%;
     height: auto;
     padding: 32px 20px;
   }
@@ -1110,15 +1160,19 @@ html {
 }
 .my-about__about p {
   position: relative;
+  width: 100%;
+  margin: 0 auto;
   font: 500 2.2rem "SVBasicManual", "SVBasicManual-Bold", sans-serif;
-  font-size: calc(14px + (30 - 14) * (100vw - 320px) / (1920 - 320));
+  font-size: calc(15px + (32 - 15) * (100vw - 320px) / (1920 - 320));
   line-height: 1.1363636364em;
   color: #fff;
   z-index: 2;
 }
 .my-about__wip {
   position: relative;
+  width: 100%;
   padding-top: 50px;
+  margin: auto 0 0;
 }
 .my-about__wip p {
   position: relative;
@@ -1128,8 +1182,8 @@ html {
   color: #000;
   background-color: #ebc106;
   border: 2px dashed #000;
-  -webkit-filter: grayscale(0.4) blur(1px);
-          filter: grayscale(0.4) blur(1px);
+  -webkit-filter: grayscale(0.6) blur(1px);
+          filter: grayscale(0.6) blur(1px);
   white-space: nowrap;
   left: -10%;
   -webkit-transform: rotate(5deg);
@@ -1161,13 +1215,13 @@ html {
   }
 }
 .my-about__wip p.s2 {
-  left: -20%;
+  left: 3%;
   -webkit-transform: rotate(-3deg);
           transform: rotate(-3deg);
   -webkit-transform-origin: left;
           transform-origin: left;
-  -webkit-filter: grayscale(0.3) blur(0.5px);
-          filter: grayscale(0.3) blur(0.5px);
+  -webkit-filter: grayscale(0.5) blur(0.5px);
+          filter: grayscale(0.5) blur(0.5px);
 }
 .my-about__stack {
   position: sticky;
@@ -1233,8 +1287,8 @@ html {
 .my-about__stack-item {
   -webkit-filter: grayscale(0.8);
           filter: grayscale(0.8);
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
 }
 .my-about__stack-item:hover {
   -webkit-filter: grayscale(0);
@@ -1705,6 +1759,11 @@ html {
   z-index: -1;
 }
 
+.cantscroll {
+  overflow: hidden;
+  height: 100%;
+}
+
 @-webkit-keyframes logorot {
   from {
     -webkit-transform: rotate3d(-30, -100, 10, 25deg) rotateZ(0deg);
@@ -1772,6 +1831,84 @@ html {
   to {
     scale: 1.2;
     opacity: 0.35;
+  }
+}
+@-webkit-keyframes prelod {
+  50% {
+    -webkit-transform: translateX(-50%) scaleY(1);
+            transform: translateX(-50%) scaleY(1);
+  }
+  90%, 100% {
+    -webkit-transform: translateX(-50%) scaleY(0);
+            transform: translateX(-50%) scaleY(0);
+    z-index: -1;
+  }
+}
+@keyframes prelod {
+  50% {
+    -webkit-transform: translateX(-50%) scaleY(1);
+            transform: translateX(-50%) scaleY(1);
+  }
+  90%, 100% {
+    -webkit-transform: translateX(-50%) scaleY(0);
+            transform: translateX(-50%) scaleY(0);
+    z-index: -1;
+  }
+}
+@-webkit-keyframes boxprelod {
+  0%, 50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.3);
+            transform: translate(-50%, -50%) scale(1.3);
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+  80% {
+    display: block;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    -webkit-filter: blur(150px);
+            filter: blur(150px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes boxprelod {
+  0%, 50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.3);
+            transform: translate(-50%, -50%) scale(1.3);
+    -webkit-filter: blur(0);
+            filter: blur(0);
+    opacity: 1;
+  }
+  80% {
+    display: block;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    -webkit-filter: blur(150px);
+            filter: blur(150px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@-webkit-keyframes boxprelod2 {
+  90% {
+    opacity: 0;
+    -webkit-filter: blur(150px);
+            filter: blur(150px);
+  }
+}
+@keyframes boxprelod2 {
+  90% {
+    opacity: 0;
+    -webkit-filter: blur(150px);
+            filter: blur(150px);
   }
 }
 /*# sourceMappingURL=main.css.map */
