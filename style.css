@@ -1259,6 +1259,11 @@ html {
 .my-about__stack .splide__track {
   height: 100%;
 }
+.my-about__stack .splide__list {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 .my-about__stack .splide__slide {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1266,6 +1271,7 @@ html {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  width: auto !important;
 }
 .my-about__stack-gr {
   position: absolute;
@@ -1283,12 +1289,18 @@ html {
 }
 .my-about__stack-gr img {
   height: 100%;
+  width: auto;
+  display: block;
 }
 .my-about__stack-item {
+  height: 100%;
   -webkit-filter: grayscale(0.8);
           filter: grayscale(0.8);
   -webkit-transition: 0.6s ease;
   transition: 0.6s ease;
+  width: auto !important;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .my-about__stack-item:hover {
   -webkit-filter: grayscale(0);
@@ -1911,4 +1923,3 @@ html {
             filter: blur(150px);
   }
 }
-/*# sourceMappingURL=main.css.map */
